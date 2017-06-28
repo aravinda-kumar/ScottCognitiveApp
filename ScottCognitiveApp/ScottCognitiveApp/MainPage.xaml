@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScottCognitiveApp"
+             x:Class="ScottCognitiveApp.MainPage">
+
+
+    <ScrollView>
+
+        <StackLayout Orientation="Vertical" Padding="10">
+
+
+            <Button Text="Computer Vision Test"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    FontSize="30"
+                    Clicked="ComputerVisionTestButton_OnClicked"/>
+
+            <Button Text="Emotion Test"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    FontSize="30"
+                    Clicked="EmotionTestButton_OnClicked"/>
+
+            <Button Text="Ocr Test"
+                    BackgroundColor="Olive"
+                    TextColor="White"
+                    FontSize="30"
+                    Clicked="OcrTestButton_OnClicked"/>
+
+            <Button Text="Text Analyzing"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    FontSize="30"
+                    Clicked="TextAnalyticsTestButton_OnClicked"/>
+
+            <Button Text="AI robot"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    FontSize="30"
+                    Clicked="AIRobotButton_OnClicked"/>
+
+
+        </StackLayout>
+
+
+    </ScrollView>
+
+</ContentPage>
