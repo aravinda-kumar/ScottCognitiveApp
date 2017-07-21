@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns = "http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScottCognitiveApp"
+             xmlns:viewModels="clr-namespace:ScottCognitiveApp.ViewModels;assembly=ScottCognitiveApp"
+             xmlns:converters="clr-namespace:ScottCognitiveApp.Converters;assembly=ScottCognitiveApp"
+             x:Class="ScottCognitiveApp.Views.ComputerVisionPage"
+             BackgroundColor="White"
+             Title="Computer Vision">
+
+    <ContentPage.BindingContext>
+        <viewModels:ComputerVisionViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ListOfStringToOneStringConverter x:Key="ListOfStringToOneStringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Orientation = "Vertical"
+                 Padding="10,0">
+            
+            
+
+            <StackLayout 
+                Orientation = "Horizontal" >
+                <Button Text="Camera"
+                TextColor="White"
+                BackgroundColor="Black"
+                FontSize="28"
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding TakePhotoCommand}"/>
+                <Button Text = "Gallery"
+                TextColor="White"
+                BackgroundColor="Black"
+                FontSize="28"
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding PickPhotoCommand}"/>
+            </StackLayout>
+
+
+            <Image x:Name="imageSpace"
+                   Source="{Binding ImageUrl}"/>
+
+
+            <ActivityIndicator IsRunning = "{Binding IsBusy}"
+                         IsEnabled="{Binding IsBusy}"
+                         IsVisible="{Binding IsBusy}"/>
+
+            <Label Text = "{Binding ErrorMessage}"
+             TextColor="Red"
+             FontSize="20" />
+
+            <Label Text = "{Binding ImageResult.Description.Captions[0].Text,
+                    StringFormat='CAPTIONS: {0:F0}'}"
+             TextColor="Maroon"
+             FontSize="20"/>
+
+            <Label Text = "{Binding ImageResult.Adult.IsAdultContent,
+                    StringFormat='IsAdultContent: {0:F0}'}"
+             TextColor="Teal"
+             FontSize="20"/>
+
+            <Label Text = "{Binding ImageResult.Adult.IsRacyContent,
+                    StringFormat='IsRacyContent: {0:F0}'}"
+             TextColor="Green"
+             FontSize="20"/>
+
+            <Label Text = "{Binding ImageResult.Description.Tags, 
+                    Converter={StaticResource ListOfStringToOneStringConverter},
+                    StringFormat='TAGS: {0:F0}'}"
+             TextColor="Navy"
+             FontSize="20"/>
+
+            <ListView ItemsSource = "{Binding ImageResult.Faces}"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding = "5" >
+                                <Label Text="{Binding Age, StringFormat='Age: {0:F0}'}"
+                       TextColor="Black"
+                       FontSize="20"/>
+                                <Label Text = "{Binding Gender, StringFormat='Gender: {0:F0}'}"
+                       TextColor="Gray"
+                       FontSize="20"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

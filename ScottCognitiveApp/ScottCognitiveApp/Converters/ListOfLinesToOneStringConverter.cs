@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ScottCognitiveApp.Models.Image;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using CognitiveServices.Models.Ocr;
 using Xamarin.Forms;
 
-namespace CognitiveServices.Converters
+namespace ScottCognitiveApp.Converters
 {
     public class ListOfLinesToOneStringConverter : IValueConverter
     {

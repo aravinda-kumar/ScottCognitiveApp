@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CognitiveServices.Converters
+namespace ScottCognitiveApp.Converters
 {
     public class ListOfStringToOneStringConverter : IValueConverter
     {

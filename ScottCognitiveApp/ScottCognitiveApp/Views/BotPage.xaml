@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScottCognitiveApp;assembly=ScottCognitiveApp"
+             xmlns:ui="clr-namespace:ScottCognitiveApp.UI;assembly=ScottCognitiveApp"
+             xmlns:viewModels="clr-namespace:ScottCognitiveApp.ViewModels;assembly=ScottCognitiveApp"
+             xmlns:converters="clr-namespace:ScottCognitiveApp.Converters;assembly=ScottCognitiveApp"
+             
+             x:Class="ScottCognitiveApp.Views.BotPage"
+             BackgroundColor="White"
+             Title="AI Bot">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ui:ImageTextDataTemplateSelector x:Key="ImageTextDataTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewModels:BotViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <StackLayout BackgroundColor="White"
+                 Padding="10">
+
+        <Entry x:Name="Message" Text="{Binding EntryText}"/>
+
+        <StackLayout
+            Orientation = "Vertical" >
+
+            <Button x:Name="TakePhotoButton"
+                    Text="Camera"
+                    TextColor="White"
+                    BackgroundColor="Black"
+                    FontSize="28"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding TakePhotoCommand}"/>
+            <Button x:Name="PickPhotoButton"
+                    Text = "Gallery"
+                    TextColor="White"
+                    BackgroundColor="Black"
+                    FontSize="28"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding PickPhotoCommand}"/>
+            <Button x:Name="SenderButton"
+                    Text="Send" 
+                    TextColor="White"
+                    BackgroundColor="Black"
+                    FontSize="28"
+                    HorizontalOptions="FillAndExpand" 
+                    Command="{Binding SendMessage}"/>
+            
+        </StackLayout>
+
+
+
+
+        <ListView x:Name="MessagesListView" 
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding ConversationList}"
+                  ItemTemplate="{StaticResource ImageTextDataTemplateSelector}">   
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+        </ListView>
+
+
+
+
+    </StackLayout>
+
+</ContentPage>

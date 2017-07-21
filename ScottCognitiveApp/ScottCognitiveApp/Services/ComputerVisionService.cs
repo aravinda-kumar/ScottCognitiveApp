@@ -3,13 +3,10 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using CognitiveServices.Models;
-using CognitiveServices.Models.Image;
-using CognitiveServices.Models.Ocr;
-using ComputerVisionApplication.Models;
+using ScottCognitiveApp.Models.Image;
 using Newtonsoft.Json;
 
-namespace CognitiveServices.Services
+namespace ScottCognitiveApp.Services
 {
     /// <summary>
     /// Client for Computer Vision API (Microsoft Cognitive Services).
@@ -21,7 +18,7 @@ namespace CognitiveServices.Services
         /// Get a subscription key from:
         /// https://www.microsoft.com/cognitive-services/en-us/subscriptions
         /// </summary>
-        private readonly string _key = "d5fdc78fad5b4cf98fce5df15146426d";
+        private readonly string _key = "38ac08184caa47ec82a83907ed6e2a96";
 
         /// <summary>
         /// Documentation for the API: https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
@@ -80,123 +77,6 @@ namespace CognitiveServices.Services
             return null;
         }
 
-        /// <summary>
-        /// This operation extracts a rich set of visual features based on the image content. 
-        /// </summary>
-        /// <param name="imageUrl">The image url.</param>
-        /// <returns></returns>
-        public async Task<ImageResult> AnalyseImageUrlAsync(string imageUrl)
-        {
-            var httpClient = new HttpClient();
-
-            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
-
-            var stringContent = new StringContent(@"{""url"":""" + imageUrl + @"""}");
-
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            try
-            {
-                var response = await httpClient.PostAsync(_analyseImageUri, stringContent);
-
-                var json = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
-                {
-
-                    var imageResult = JsonConvert.DeserializeObject<ImageResult>(json);
-
-                    return imageResult;
-                }
-
-                throw new Exception(json);
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Optical Character Recognition (OCR) detects text in an image 
-        /// and extracts the recognized characters into a machine-usable character stream.
-        /// </summary>
-        /// <param name="imageUrl">The image url.</param>
-        /// <returns></returns>
-        public async Task<OcrResult> ExtractTextFromImageUrlAsync(string imageUrl)
-        {
-            var httpClient = new HttpClient();
-
-            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
-
-            var stringContent = new StringContent(@"{""url"":""" + imageUrl + @"""}");
-
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            try
-            {
-                var response = await httpClient.PostAsync(_extractTextUri, stringContent);
-
-                var json = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
-                {
-
-                    var imageResultOcr = JsonConvert.DeserializeObject<OcrResult>(json);
-
-                    return imageResultOcr;
-                }
-
-                throw new Exception(json);
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Optical Character Recognition (OCR) detects text in an image 
-        /// and extracts the recognized characters into a machine-usable character stream.
-        /// </summary>
-        /// <param name="imageUrl">The image url.</param>
-        /// <returns></returns>
-        public async Task<OcrResult> ExtractTextFromImageStreamAsync(Stream stream)
-        {
-            var httpClient = new HttpClient();
-
-            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
-
-            var streamContent = new StreamContent(stream);
-
-            streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-
-            try
-            {
-                var response = await httpClient.PostAsync(_extractTextUri, streamContent);
-
-                var json = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
-                {
-
-                    var imageResultOcr = JsonConvert.DeserializeObject<OcrResult>(json);
-
-                    return imageResultOcr;
-                }
-
-                throw new Exception(json);
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-
-            return null;
-        }
+        
     }
 }

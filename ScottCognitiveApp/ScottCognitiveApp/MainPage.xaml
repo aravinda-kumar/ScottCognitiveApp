@@ -16,23 +16,6 @@
                     FontSize="30"
                     Clicked="ComputerVisionTestButton_OnClicked"/>
 
-            <Button Text="Emotion Test"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    FontSize="30"
-                    Clicked="EmotionTestButton_OnClicked"/>
-
-            <Button Text="Ocr Test"
-                    BackgroundColor="Olive"
-                    TextColor="White"
-                    FontSize="30"
-                    Clicked="OcrTestButton_OnClicked"/>
-
-            <Button Text="Text Analyzing"
-                    BackgroundColor="Navy"
-                    TextColor="White"
-                    FontSize="30"
-                    Clicked="TextAnalyticsTestButton_OnClicked"/>
 
             <Button Text="AI robot"
                     BackgroundColor="Black"

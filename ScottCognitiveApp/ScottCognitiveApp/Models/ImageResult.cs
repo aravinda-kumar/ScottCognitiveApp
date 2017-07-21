@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CognitiveServices.Models.Image
+namespace ScottCognitiveApp.Models.Image
 {
 
     public class Detail
@@ -89,6 +89,25 @@ namespace CognitiveServices.Models.Image
         public List<Face> Faces { get; set; }
         public Color Color { get; set; }
         public ImageType ImageType { get; set; }
+    }
+
+
+    public class Region
+    {
+        public string BoundingBox { get; set; }
+        public List<Line> Lines { get; set; }
+    }
+
+    public class Line
+    {
+        public string BoundingBox { get; set; }
+        public Word[] Words { get; set; }
+    }
+
+    public class Word
+    {
+        public string BoundingBox { get; set; }
+        public string Text { get; set; }
     }
 
 }
