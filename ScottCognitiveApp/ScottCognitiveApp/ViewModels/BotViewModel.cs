@@ -143,6 +143,7 @@ namespace ScottCognitiveApp.ViewModels
                     if (!string.IsNullOrWhiteSpace(EntryText))
                     {
                         var mytext = EntryText;
+                        string[] myImages;
 
                         EntryText = string.Empty;
                         
