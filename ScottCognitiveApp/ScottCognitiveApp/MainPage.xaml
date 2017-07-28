@@ -10,11 +10,6 @@
         <StackLayout Orientation="Vertical" Padding="10">
 
 
-            <Button Text="Computer Vision Test"
-                    BackgroundColor="Blue"
-                    TextColor="White"
-                    FontSize="30"
-                    Clicked="ComputerVisionTestButton_OnClicked"/>
 
 
             <Button Text="AI robot"

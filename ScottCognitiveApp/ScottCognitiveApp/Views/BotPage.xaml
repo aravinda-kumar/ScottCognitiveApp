@@ -49,7 +49,7 @@
                     BackgroundColor="Black"
                     FontSize="28"
                     HorizontalOptions="FillAndExpand" 
-                    Command="{Binding SendMessage}"/>
+                    Command="{Binding SendMessageCommand}"/>
             
         </StackLayout>
 
@@ -60,15 +60,14 @@
                   HasUnevenRows="True"
                   ItemsSource="{Binding ConversationList}"
                   ItemTemplate="{StaticResource ImageTextDataTemplateSelector}">   
-            <!--<ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
+           
         </ListView>
+        
+        
 
+        <StackLayout Grid.Row="2" x:Name="OfflineStack" Padding="8" IsVisible="false" BackgroundColor="#F2C500">
+            <Label TextColor="White" Text="No Connection - Offline Mode" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
 
 
 

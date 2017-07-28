@@ -5,6 +5,9 @@
 	<Application.Resources>
 
 		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+        <vm:ViewModelLocator x:Key="Locator" xmlns:vm="clr-namespace:ScottCognitiveApp.ViewModels" />
+        </ResourceDictionary>
 
-	</Application.Resources>
+    </Application.Resources>
 </Application>

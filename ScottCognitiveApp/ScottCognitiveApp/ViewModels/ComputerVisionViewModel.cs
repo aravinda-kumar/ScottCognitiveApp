@@ -20,7 +20,7 @@ namespace ScottCognitiveApp.ViewModels
         /// https://www.microsoft.com/cognitive-services/en-us/subscriptions
         /// The following API Key may stop working at anytime, so get your own!
         /// </summary>
-        private const string ComputerVisionApiKey = "d5fdc78fad5b4cf98fce5df15146426d";
+        private const string ComputerVisionApiKey = "2a55f74b65344ac7b9f00cde32bf40a7";
         private readonly ComputerVisionService _computerVisionService = new ComputerVisionService(ComputerVisionApiKey);
         private string _imageUrl;
         private Stream _imageStream;
@@ -140,10 +140,7 @@ namespace ScottCognitiveApp.ViewModels
             }
         }
 
-
-
-
-
+        
 
         
         public event PropertyChangedEventHandler PropertyChanged;

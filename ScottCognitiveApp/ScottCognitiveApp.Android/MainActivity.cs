@@ -17,6 +17,9 @@ namespace ScottCognitiveApp.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
+
             base.OnCreate(bundle);
 
 

@@ -12,21 +12,33 @@ namespace ScottCognitiveApp.UI
     public class ImageTextDataTemplateSelector : DataTemplateSelector
     {
 
-        public DataTemplate _textTemplate = new DataTemplate(typeof(TextTemplate));
-        public DataTemplate _imageTemplate = new DataTemplate(typeof(ImageTemplate));
+        public DataTemplate _receiveTemplate = new DataTemplate(typeof(ReceiveTemplate));
+        public DataTemplate _sendTemplate = new DataTemplate(typeof(SendTemplate));
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
             var _chatMessage = item as ChatMessage;
 
-            Debug.WriteLine(_chatMessage.Images == null);
-
-            if (_chatMessage.Images != null && _chatMessage.Images.Length > 0)
+            /***
+             if (_chatMessage.From == "Scott")
             {
-                return _imageTemplate;
+                return _sendTemplate;
             }
 
-            return _textTemplate;
+            **/
+            //red
+
+            if (_chatMessage != null)
+            {
+                if (_chatMessage.From == "Scott")
+                {
+                    return _sendTemplate;
+                }
+            }
+
+            return _receiveTemplate;
+            
+            
         }
     }
 }

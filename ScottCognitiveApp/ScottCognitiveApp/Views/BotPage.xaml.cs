@@ -1,29 +1,42 @@
-﻿using ScottCognitiveApp.Bot;
-using ScottCognitiveApp.Models;
+﻿
 using ScottCognitiveApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using System;
+using System.Collections.Generic;
+
+using ScottCognitiveApp.Helpers;
+using ScottCognitiveApp.Models;
 
 namespace ScottCognitiveApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BotPage : ContentPage
 	{
-        
+        BotViewModel vm;
         public BotPage()
         {
             InitializeComponent();
-            BindingContext = new BotViewModel();
+            BindingContext = vm = ViewModelLocator.MainViewModel;
             
         }
         
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+
+            vm.LoadChatMessagesCommand.Execute(null);
+
+        }
+        
+        
+
 
     }
 }

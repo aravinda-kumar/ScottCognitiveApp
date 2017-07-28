@@ -18,14 +18,16 @@ namespace ScottCognitiveApp.Services
         /// Get a subscription key from:
         /// https://www.microsoft.com/cognitive-services/en-us/subscriptions
         /// </summary>
-        private readonly string _key = "38ac08184caa47ec82a83907ed6e2a96";
+        private readonly string _key = "2a55f74b65344ac7b9f00cde32bf40a7";
 
         /// <summary>
         /// Documentation for the API: https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
         /// </summary>
-        private readonly string _analyseImageUri = "https://api.projectoxford.ai/vision/v1.0/analyze?" + "visualFeatures=Description,Categories,Tags,Faces,ImageType,Color,Adult&details=Celebrities";
+        private readonly string _analyseImageUriOld = "https://api.projectoxford.ai/vision/v1.0/analyze?" + "visualFeatures=Description,Categories,Tags,Faces,ImageType,Color,Adult&details=Celebrities";
 
-        private readonly string _extractTextUri = "https://api.projectoxford.ai/vision/v1.0/ocr?" + "language=unk&detectOrientation=true";
+        private readonly string _analyseImageUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?"+
+            "visualFeatures=Description,Categories,Tags,Faces,ImageType,Color,Adult&details=Celebrities&language=en";
+
 
         /// <summary>
         /// Get a subscription key from:

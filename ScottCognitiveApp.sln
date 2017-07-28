@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScottCognitiveApp.Android", "ScottCognitiveApp\ScottCognitiveApp.Android\ScottCognitiveApp.Android.csproj", "{519A36AF-F3DD-42FB-84DB-B83AAB17DAC8}"
 EndProject
@@ -202,6 +202,8 @@ Global
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|ARM.Build.0 = Debug|ARM
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|ARM.Deploy.0 = Debug|ARM
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|iPhone.ActiveCfg = Debug|x86
+		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|iPhone.Build.0 = Debug|x86
+		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|iPhone.Deploy.0 = Debug|x86
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|x64.ActiveCfg = Debug|x64
 		{C773722A-65AE-472E-AE64-E8AB2C6AE27F}.Debug|x64.Build.0 = Debug|x64

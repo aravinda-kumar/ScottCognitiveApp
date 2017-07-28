@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace ScottCognitiveApp.Bot
 {
@@ -44,12 +45,10 @@ namespace ScottCognitiveApp.Bot
 
 
 
-        public async Task<ChatMessage> SendMessage(string username, string messageText)
+        public async Task<ChatMessage> SendMessage(ChatMessage message)
         {
-            var messageToSend = new ChatMessage() { From = username, Text = messageText, ConversationId = _lastConversation.ConversationId };
 
-
-            var contentPost = new StringContent(JsonConvert.SerializeObject(messageToSend), Encoding.UTF8, "application/json");
+            var contentPost = new StringContent(JsonConvert.SerializeObject(message), Encoding.UTF8, "application/json");
             var conversationUrl = "https://directline.botframework.com/api/conversations/" + _lastConversation.ConversationId + "/messages/";
 
             var response = await _httpClient.PostAsync(conversationUrl, contentPost);
@@ -60,9 +59,6 @@ namespace ScottCognitiveApp.Bot
             var messagesRoot = JsonConvert.DeserializeObject<BotMessageRoot>(messagesReceivedData);
             var messages = messagesRoot.Messages;
 
-            var renewUrl = "https://directline.botframework.com/api/tokens/" + _lastConversation.ConversationId + "/renew/";
-            response = await _httpClient.GetAsync(renewUrl);
-            
 
             return messages.Last();
         }
